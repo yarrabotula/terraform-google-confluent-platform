@@ -15,10 +15,11 @@ module "confluent-cluster" {
   source = "./modules/confluent-platform"
   brokers = var.brokers
   zookeepers = var.zookeepers
-  connects = var.connects
+  control-centre = var.control-centre
   schema-registrys = var.schema-registrys
+  connects = var.connects
 
-  vpc_network_name = module.confluent-platform-network.vpc_net_name
+  vpc_network_name = module.google_confluent_kafka_network.vpc_net_name
 
   name = var.name
   project = var.project
